@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 27 14:05:10 2017
-
-@author: mingfan.li
-"""
 
 import os
 import random
