@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Sep 28 23:17:35 2017
-
-@author: mingfan.li
-"""
 
 import os
 from PIL import Image
