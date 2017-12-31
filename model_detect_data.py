@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 30 10:22:44 2017
-
-@author: mingfan.li
-"""
 
 import os
 
