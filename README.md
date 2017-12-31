@@ -4,7 +4,7 @@ cnn+lstm(CTPN/CRNN) for image text detection, cnn+lstm+ctc for recognition
 
 ## detection model
 
-detection model is mainly based on the article:
+The model is mainly based on the method described in the article:
   
 Detecting Text in Natural Image with Connectionist Text Proposal Network
   
@@ -15,7 +15,7 @@ https://arxiv.org/abs/1609.03605
 
 ## recognition model
 
-recognition model is mainly based on the article:
+The model is mainly based on the method described in the article:
   
 An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition
   
