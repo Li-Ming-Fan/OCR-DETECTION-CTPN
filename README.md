@@ -1,5 +1,6 @@
 # OCR-CRNN-CTPN
-cnn+lstm(CTPN/CRNN) for image text detection, cnn+lstm+ctc for recognition
+  
+cnn+lstm(CTPN/CRNN) for image text detection
 
 
 ## detection model
@@ -11,17 +12,6 @@ Detecting Text in Natural Image with Connectionist Text Proposal Network
 Zhi Tian, Weilin Huang, Tong He, Pan He, Yu Qiao
   
 https://arxiv.org/abs/1609.03605
-
-
-## recognition model
-
-The model is mainly based on the method described in the article:
-  
-An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition
-  
-Baoguang Shi, Xiang Bai, Cong Yao
-  
-https://arxiv.org/abs/1507.05717
 
 
 
