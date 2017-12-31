@@ -181,7 +181,7 @@ output_state_fw和output_state_bw的类型为LSTMStateTuple。
 LSTMStateTuple由（c，h）组成，分别代表memory cell和hidden state。
 '''
 def rnn_layer(input_sequence, sequence_length, rnn_size, scope):
-    '''build bidirectional (concatenated output) lstm layer'''
+    '''define bidirectional (summed output) lstm layer'''
     #
     weight_initializer = tf.truncated_normal_initializer(stddev = 0.01)
     #
@@ -208,7 +208,7 @@ def rnn_layer(input_sequence, sequence_length, rnn_size, scope):
     return rnn_output_stack
 #
 def gru_layer(input_sequence, sequence_length, rnn_size, scope):
-    '''build bidirectional (concatenated output) lstm layer'''
+    '''define bidirectional (summed output) lstm layer'''
     
     # Default activation is tanh
     cell_fw = tf.contrib.rnn.GRUCell(rnn_size)
