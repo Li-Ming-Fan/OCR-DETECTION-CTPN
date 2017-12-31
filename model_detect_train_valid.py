@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Oct  3 12:50:37 2017
-
-@author: mingfan.li
-"""
 
 import os
 import shutil 
