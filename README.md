@@ -1,6 +1,6 @@
 # OCR-CTPN-CRNN
   
-cnn+lstm(CTPN/CRNN) for image text detection
+cnn+lstm (CTPN/CRNN) for image text detection
 
 
 ## detection model
