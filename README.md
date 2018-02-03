@@ -1,7 +1,10 @@
 # OCR-CTPN-CRNN
-
+  
+  
 cnn+lstm (CTPN/CRNN) for image text detection
-
+  
+Implemented with tensorflow, trained from scratch.
+  
 
 ## detection model
 
