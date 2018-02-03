@@ -6,7 +6,7 @@ CNN+LSTM (CTPN/CRNN) for image text detection
 Implemented with tensorflow, trained from scratch.
   
 
-## detection model
+### detection model
 
 The model is mainly based on the method described in the article:
   
