@@ -1,9 +1,15 @@
 # OCR-CTPN-CRNN
-
+  
+  
 cnn+lstm (CTPN/CRNN) for image text detection
-
-
-## detection model
+  
+  
+### description
+  
+This is branch: plain. It is simple and direct.
+  
+  
+### detection model
 
 The model is mainly based on the method described in the article:
   
