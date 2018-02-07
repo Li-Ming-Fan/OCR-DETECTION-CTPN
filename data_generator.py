@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 27 14:05:10 2017
+
+@author: mingfan.li
+"""
 
 import os
 import random
@@ -49,7 +54,7 @@ list_fonts = ['C:\Windows\Fonts\Arial.ttf',
               #'C:\Windows\Fonts\BASKVILL.TTF',
               'C:\Windows\Fonts\Times.ttf']
 #              
-list_sizes = [32, 33, 34, 35, 36, 45, 46]#[30, 31, 32, 33, 34]
+list_sizes = [26, 28, 30, 31, 32, 33, 34, 36, 40, 44]
 #
 
 #
@@ -171,6 +176,8 @@ def generateDataSample(draw, width, height):
     x1 = x0
     y1 = y0
     #
+    max_th = 0
+    #
     while 1:
         #
         if random.random() < ratio_noise_patch:
@@ -185,6 +192,8 @@ def generateDataSample(draw, width, height):
         font = ImageFont.truetype(font_file, text_size)
         #文字大小
         tw,th = draw.textsize(text_str,font)
+        #
+        if th > max_th: max_th = th
         #
         xs = x0 # - round(tw/50.0)
         ys = y0 # + round(th/20.0)
@@ -226,6 +235,8 @@ def generateDataSample(draw, width, height):
         #更新
         x0 = x1 + sep_horizontal + random.randint(0, sep_div)
         #
+    #
+    print('max text_height: %d' % max_th)
     #
     return list_bbox_text
 #

@@ -71,7 +71,7 @@ def calculateTargetsAt(anchor_center, txt_list, anchor_heights):
     #
     #
     # anchor width: 8,
-    # anchor height: 8, 16, 32, 64, ...
+    # anchor height: 8, 16, 24, 32, 48,
     #
     # anchor stride: 8,8
     #
@@ -244,7 +244,7 @@ def getImageAndTargets(img_file, anchor_heights):
     # [48,48; 8,8], [50,50; 8,8], [52,52; 8,8], 
     #
     # anchor width: 8,
-    # anchor height: 8, 16, 32, 64,
+    # anchor height: 8, 16, 24, 32, 48
     #
     # feature_layer --> receptive_field
     # [0,0] --> [0:52, 0:52]
