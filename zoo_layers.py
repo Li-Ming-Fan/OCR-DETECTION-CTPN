@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-@author: limingfan
 
-"""
 
 import tensorflow as tf
 from tensorflow.python.training.moving_averages import assign_moving_average
