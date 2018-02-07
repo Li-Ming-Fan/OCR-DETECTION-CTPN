@@ -31,7 +31,7 @@ class ModelDetect():
         #        
         self.z_sess_config = config
         #
-        self.z_valid_freq = 100
+        self.z_valid_freq = 10
         self.z_valid_option = False
         #
         

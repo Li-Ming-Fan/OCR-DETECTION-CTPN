@@ -27,7 +27,7 @@ model_detect_dir = './model_detect'
 model_detect_name = 'model_detect'
 model_detect_pb_file = model_detect_name + '.pb'
 #
-anchor_heights = [18, 27, 36, 45, 54, 72]
+anchor_heights = [16, 24, 32, 48, 64]
 #
 threshold = 0.5  #
 #

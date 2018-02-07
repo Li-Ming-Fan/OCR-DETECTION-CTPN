@@ -64,18 +64,22 @@ def getListContents(content_file):
     return contents
 #
 #
+#
 def calculateTargetsAt(anchor_center, txt_list, anchor_heights):
     #
     # anchor_center = [hc, wc]
     #
     #
-    # anchor width: 16,
+    # anchor width: 8,
     # anchor height: 8, 16, 32, 64, ...
     #
     # anchor stride: 8,8
     #
 
-
+    #
+    anchor_width = 8
+    #
+    
     #
     hc = anchor_center[0]
     wc = anchor_center[1]
@@ -166,19 +170,19 @@ def calculateTargetsAt(anchor_center, txt_list, anchor_heights):
         cls.extend([1, 1])  #
         #
         half_ah = ah //2
-        half_aw = 8
+        half_aw = anchor_width //2
         #
         anchor_bbox = [wc - half_aw, hc - half_ah, wc + half_aw, hc + half_ah]
         #
         ratio_bbox = [0, 0, 0, 0]
         #
-        ratio = (text_bbox[0]-anchor_bbox[0]) /16
+        ratio = (text_bbox[0]-anchor_bbox[0]) /anchor_width
         if abs(ratio) < 1: 
             ratio_bbox[0] = ratio
         #
         # print(ratio)
         #
-        ratio = (text_bbox[2]-anchor_bbox[2]) /16
+        ratio = (text_bbox[2]-anchor_bbox[2]) /anchor_width
         if abs(ratio) < 1:
             ratio_bbox[2] = ratio
         #
@@ -239,7 +243,7 @@ def getImageAndTargets(img_file, anchor_heights):
     # [20,20; 4,4], [22,22; 4,4], [24,24; 4,4]
     # [48,48; 8,8], [50,50; 8,8], [52,52; 8,8], 
     #
-    # anchor width: 16,
+    # anchor width: 8,
     # anchor height: 8, 16, 32, 64,
     #
     # feature_layer --> receptive_field
@@ -271,9 +275,17 @@ def getImageAndTargets(img_file, anchor_heights):
 #
 def transResults(r_cls, r_ver, r_hor, anchor_heights, threshold):
     #
-    # anchor width: 16,
+    # anchor width: 8,
     #
     
+    #
+    anchor_width = 8
+    #
+    
+    #
+    aw = anchor_width
+    #
+        
     #
     list_bbox = []
     #
@@ -300,15 +312,15 @@ def transResults(r_cls, r_ver, r_hor, anchor_heights, threshold):
             wc = 26 + 8*w  # anchor center
             #
             half_ah = ah //2
-            half_aw = 8
+            half_aw = anchor_width //2
             #
             anchor_bbox = [wc - half_aw, hc - half_ah, wc + half_aw, hc + half_ah]
             #
             text_bbox = [0, 0, 0, 0]
             #
-            text_bbox[0] = anchor_bbox[0] + 16 * r_hor[h,w,anchor_posi]
+            text_bbox[0] = anchor_bbox[0] + aw * r_hor[h,w,anchor_posi]
             text_bbox[1] = anchor_bbox[1] + ah * r_ver[h,w,anchor_posi]
-            text_bbox[2] = anchor_bbox[2] + 16 * r_hor[h,w,anchor_posi+1]
+            text_bbox[2] = anchor_bbox[2] + aw * r_hor[h,w,anchor_posi+1]
             text_bbox[3] = anchor_bbox[3] + ah * r_ver[h,w,anchor_posi+1]
             #
             list_bbox.append(text_bbox)
@@ -344,7 +356,7 @@ if __name__ == '__main__':
     #
     print('draw target bbox ... ')
     #
-    import model_meta as meta
+    import model_config as meta
     #
     list_imgs = getFilesInDirect(meta.dir_images_valid, meta.str_dot_img_ext)
     #

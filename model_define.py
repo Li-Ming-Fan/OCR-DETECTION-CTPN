@@ -40,7 +40,7 @@ def conv_feat_layers(inputs, width, detect, training):
     # [20,20; 4,4], [22,22; 4,4], [24,24; 4,4]
     # [48,48; 8,8], [50,50; 8,8], [52,52; 8,8], 
     #
-    # anchor width: 16,
+    # anchor width:  8,
     # anchor height: 8, 16, 32, 64,
     #
     # feature_layer --> receptive_field
