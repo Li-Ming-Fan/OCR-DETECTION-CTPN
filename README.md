@@ -8,7 +8,7 @@ CNN+LSTM (CTPN/CRNN) for image text detection and recognition
   
 The detection model (CTPN) can easily be trained from scratch, while the recognition model (CRNN+CTC) is not.
   
-So the two are designed to share large part of CNN layers and the RNN layers. So the recognition model can be trained with the detection model as the pretrained model.
+So the two are designed to share large part of CNN layers and the RNN layers. So the recognition model can be trained with the detection model as pretrained model.
   
 
 ### detection model
