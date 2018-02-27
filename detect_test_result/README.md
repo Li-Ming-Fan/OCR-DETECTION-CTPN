@@ -1,5 +1,5 @@
 
-Examples of test results of detection model
+Examples of test results of the detection model
   
-after training 3060 steps
+after training 100, 3000, 5000 steps
 
