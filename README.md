@@ -5,11 +5,21 @@ CNN+LSTM (CTPN/CRNN) for image text detection and recognition
   
   
 ### description
+  
+To run this repo:
   
-The detection model (CTPN) can easily be trained from scratch, while the recognition model (CRNN+CTC) can not.
+1, normalize the pre-normalize background images: python data_base_normalize.py
+2, generate validation data: python data_generator.py 0
+3, generate training data: python data_generator.py 1
+4, train and validate: python script_detect.py
   
-So the two are designed to share large part of CNN layers and the RNN layers. So the recognition model can be trained with the detection model as pretrained model.
+By 1, the pre-normalized images will firstly be rescaled if not of size 800x600, then 800x600 rects will be cropped from the rescaled images. The 800x600 images will be stored in a newly-maked directory, images_base/.
   
+By 2 and 3, validation data and training data will be generated. These will be store in the newly-maked directories, data_test/ and data_generated/, respectively.
+  
+By 4, the model will be trained and validated. The validation results will be stored in data_test/results/ . The ckpt files will be stored in a newly-maked directory, model_detect/.
+
+
 
 ### detection model
   
@@ -21,18 +31,6 @@ Zhi Tian, Weilin Huang, Tong He, Pan He, Yu Qiao
   
 https://arxiv.org/abs/1609.03605
 
-
-### recognition model
-
-The model is mainly based on the method described in the article:
-  
-An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition
-  
-Baoguang Shi, Xiang Bai, Cong Yao
-  
-https://arxiv.org/abs/1507.05717
-
-###
 
 
 
