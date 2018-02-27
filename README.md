@@ -5,7 +5,6 @@ CNN+LSTM (CTPN/CRNN) for image text detection and recognition
   
   
 ### description
-  
   
 To run this repo:
   
@@ -16,6 +15,7 @@ To run this repo:
 3, generate training data: python data_generator.py 1
   
 4, train and validate: python script_detect.py
+  
   
 By 1, the pre-normalized images will firstly be rescaled if not of size 800x600, then 800x600 rects will be cropped from the rescaled images. The 800x600 images will be stored in a newly-maked directory, images_base/.
   
