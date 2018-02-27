@@ -22,7 +22,7 @@ By 1, the pre-normalized images will firstly be rescaled if not of size 800x600,
   
 By 2 and 3, validation data and training data will be generated. These will be store in the newly-maked directories, data_test/ and data_generated/, respectively.
   
-By 4, the model will be trained and validated. The validation results will be stored in data_test/results/ . The ckpt files will be stored in a newly-maked directory, model_detect/.
+By 4, the model will be trained and validated. The validation results will be stored in data_test/results/. The ckpt files will be stored in a newly-maked directory, model_detect/.
 
 
 
