@@ -3,6 +3,7 @@
   
 CNN+LSTM (CTPN) for image text detection
   
+</br>
   
 ### description
   
