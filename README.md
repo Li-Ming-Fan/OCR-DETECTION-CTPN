@@ -8,13 +8,13 @@ CNN+LSTM (CTPN) for image text detection
   
 To run this repo:
   
-1, normalize the pre-normalize background images: python data_base_normalize.py
+1, python data_base_normalize.py   # to normalize the pre-normalize background images
   
-2, generate validation data: python data_generator.py 0
+2, python data_generator.py 0   # to generate validation data
   
-3, generate training data: python data_generator.py 1
+3, python data_generator.py 1   # to generate training data
   
-4, train and validate: python script_detect.py
+4, python script_detect.py    # to train and validate
   
   
 By 1, the pre-normalized images will firstly be rescaled if not of size 800x600, then 800x600 rects will be cropped from the rescaled images. The 800x600 images will be stored in a newly-maked directory, images_base/.
