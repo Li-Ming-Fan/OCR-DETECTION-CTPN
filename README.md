@@ -1,7 +1,7 @@
-# OCR-CTPN-CRNN
+# OCR-DETECTION-CTPN
   
   
-CNN+LSTM (CTPN/CRNN) for image text detection and recognition
+CNN+LSTM (CTPN) for image text detection
   
   
 ### description
