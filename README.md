@@ -2,14 +2,13 @@
   
   
 CNN+LSTM (CTPN) for image text detection
-
-</br>
+  
   
 ### description
   
 To run this repo:
   
-1, python data_base_normalize.py    &nbsp; &nbsp; &nbsp;   # to normalize the pre-normalize background images
+1, python data_base_normalize.py    &nbsp; &nbsp; &nbsp;   # to normalize the pre-normalized background images
   
 2, python data_generator.py 0    &nbsp; &nbsp; &nbsp;  # to generate validation data
   
