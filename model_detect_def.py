@@ -278,6 +278,7 @@ then the targets are calcaluted as the following snippet goes:
     ver.extend([ratio_bbox[1], ratio_bbox[3]])
     hor.extend([ratio_bbox[0], ratio_bbox[2]]) 
     #
+    
 So side-refinement is incorporated into target_hor. As you can see, 
 target_hor is the ratio of side-displacement over anchor-width if the anchor is at one of the two ends. 
 If the anchor is in the middle, then target_hor = [0, 0]. 
