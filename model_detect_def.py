@@ -230,6 +230,9 @@ def detect_loss(rnn_cls, rnn_ver, rnn_hor, target_cls, target_ver, target_hor):
     
 """
 
+https://github.com/Li-Ming-Fan/OCR-DETECTION-CTPN/issues/7
+
+
 In the code, anchors are fixed with width 8 pixels, and anchor_heights = [6, 12, 24, 36].
 
 (in function get_image_and_targets(), model_data_detect.py )
