@@ -227,4 +227,68 @@ def detect_loss(rnn_cls, rnn_ver, rnn_hor, target_cls, target_ver, target_hor):
     #
     return loss
     #
+    
+"""
+
+In the code, anchors are fixed with width 8 pixels, and anchor_heights = [6, 12, 24, 36].
+
+(in function get_image_and_targets(), model_data_detect.py )
+target_cls = np.zeros((height_feat, width_feat, 2 * num_anchors))
+target_ver = np.zeros((height_feat, width_feat, 2 * num_anchors))
+target_hor = np.zeros((height_feat, width_feat, 2 * num_anchors))
+
+For each point in the last feature map, there is a corresponding anchor center in the original picture.
+For each anchor center, there are 4 anchors attached (same width, different heights).
+
+Through some rules, each anchor box can be assigned positive, or negative.
+Roughly, in width: if more than half of the anchor is text, positive;
+in height: if more than half of the anchor is text, positive;
+in heigth_IoU: of the 4 anchors, choose the one with max height_IoU.
+Please see calculate_targets_at(anchor_center, txt_list, anchor_heights) in model_data_detect.py for details.
+
+If an anchor box is negative, then target_cls = [0, 0], target_ver = [0, 0], and target_hor = [0, 0].
+If it is positive, then target_cls = [1, 1].
+And target_ver = [0, 0], target_hor = [0, 0] for initialization.
+Suppose the anchor is [p_left, p_up, p_right, p_down],
+and the nearest text bbox is [t_left, t_t_up, t_right, t_down],
+then the targets are calcaluted as the following snippet goes:
+
+    ratio_bbox = [0, 0, 0, 0]
+    #
+    ratio = (text_bbox[0]-anchor_bbox[0]) /anchor_width
+    if abs(ratio) < 1: 
+        ratio_bbox[0] = ratio
+    #
+    # print(ratio)
+    #
+    ratio = (text_bbox[2]-anchor_bbox[2]) /anchor_width
+    if abs(ratio) < 1:
+        ratio_bbox[2] = ratio
+    #
+    # print(ratio)
+    #
+    ratio_bbox[1] = (text_bbox[1]-anchor_bbox[1]) /ah
+    ratio_bbox[3] = (text_bbox[3]-anchor_bbox[3]) /ah
+    #
+    # print(ratio_bbox)
+    #
+    ver.extend([ratio_bbox[1], ratio_bbox[3]])
+    hor.extend([ratio_bbox[0], ratio_bbox[2]]) 
+    #
+So side-refinement is incorporated into target_hor. As you can see, 
+target_hor is the ratio of side-displacement over anchor-width if the anchor is at one of the two ends. 
+If the anchor is in the middle, then target_hor = [0, 0]. 
+And target_ver is the ratio of vertical-displacement over anchor-height.
+
+In the loss function, I first treat positive anchors and negative anchors separately, 
+loss of positive anchors are averaged over positive anchors, loss of negative ones are averaged on the negative ones. 
+This is because there are too many negative anchors in one picture, there is an imbalance problem. 
+To easily separate the positive and negative ones, 
+I specially set target_cls = [1, 1] for positive and [0, 0] for negative, using a doubled indicator.
+
+Secondly, I modified the weights for different anchors. If the learned bbox is near the target bbox, 
+that is to say the loss is small, then the weight goes down; if the loss is large, the weight goes up. 
+In spirit, it is same with the focal loss, but in different implementations.
+
+"""
 
