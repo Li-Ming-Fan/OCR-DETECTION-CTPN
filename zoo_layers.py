@@ -109,7 +109,7 @@ def padd_layer(tensor, paddings, mode='CONSTANT', name=None):
 tf.layers.max_pooling2d(inputs, pool_size, strides,
                         padding='valid', data_format='channels_last', name=None)
 '''
-
+# 最大采提层
 def maxpool_layer(inputs, size, stride, padding, name):
     '''define a max-pooling layer'''
     return tf.layers.max_pooling2d(inputs, size, stride,
@@ -121,7 +121,7 @@ def maxpool_layer(inputs, size, stride, padding, name):
 tf.layers.average_pooling2d(inputs, pool_size, strides,
                             padding='valid', data_format='channels_last', name=None)
 '''
-
+# 平均采提层
 def averpool_layer(inputs, size, stride, padding, name):
     '''define a average-pooling layer'''
     return tf.layers.average_pooling2d(inputs, size, stride,
