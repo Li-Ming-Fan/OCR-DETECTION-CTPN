@@ -345,12 +345,38 @@ def trans_results(r_cls, r_ver, r_hor, anchor_heights, threshold):
     #
 
 def do_nms_and_connection(list_bbox, list_conf):
-    
+    max_margin = 50
+    len_list_box = len(list_bbox)
     conn_bbox = []
-    
-    # to be done
-    
+    head = tail = 0
+    for i in range(1, len_list_box):
+        distance_i_j = abs(list_bbox[i][0] - list_bbox[i - 1][0])
+        overlap_i_j = overlap(list_bbox[i][1], list_bbox[i][3], list_bbox[i - 1][1], list_bbox[i - 1][3])
+        if distance_i_j < max_margin and overlap_i_j > 0.7:
+            tail = i
+            if i == len_list_box-1:
+                this_test_box = [list_bbox[head][0], list_bbox[head][1], list_bbox[tail][2], list_bbox[tail][3]]
+                conn_bbox.append(this_test_box)
+                head = tail = i
+        else:
+            this_test_box = [list_bbox[head][0], list_bbox[head][1], list_bbox[tail][2], list_bbox[tail][3]]
+            conn_bbox.append(this_test_box)
+            head = tail = i
+
     return conn_bbox
+
+
+def overlap(h_up1, h_dw1, h_up2, h_dw2):
+    """
+    :param h_up1:
+    :param h_dw1:
+    :param h_up2:
+    :param h_dw2:
+    :return:
+    """
+    overlap_value = (min(h_dw1, h_dw2) - max(h_up1, h_up2)) \
+                    / (max(h_dw1, h_dw2) - min(h_up1, h_up2))
+    return overlap_value
         
 #
 def draw_text_boxes(img_file, text_bbox):
